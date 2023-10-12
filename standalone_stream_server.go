@@ -99,7 +99,7 @@ func (ss *standaloneStreamServer) Start(ctx context.Context) error {
 	serverOpts = append(serverOpts, rpc.WithWebRTCServerOptions(webrtcOpts))
 	serverOpts = append(serverOpts, rpc.WithUnauthenticated(), rpc.WithInstanceNames("local"))
 
-	rpcServer, err := rpc.NewServer(ss.logger, serverOpts...)
+	rpcServer, err := rpc.NewServer(ctx, ss.logger, serverOpts...)
 	if err != nil {
 		return err
 	}
